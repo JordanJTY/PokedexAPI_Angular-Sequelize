@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Pokemon details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container-card">
+    <ion-item class="item-card">
+      <ion-card *ngIf="pokemon">
+        <ion-card-header>
+          <h1>Nº {{pokemon.numpokemon}}</h1>
+          <ion-title>{{pokemon.name}}</ion-title>
+          <ion-item class="img-container">
+            <ion-img *ngIf="+[(pokemon.numpokemon)] < 10"
+              src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/00{{pokemon.numpokemon}}.png"></ion-img>
+            <ion-img *ngIf="9 < +[(pokemon.numpokemon)] && +[(pokemon.numpokemon)] < 100"
+              src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/0{{pokemon.numpokemon}}.png"></ion-img>
+            <ion-img *ngIf="99 < +[(pokemon.numpokemon)] && +[(pokemon.numpokemon)] < 810"
+              src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{pokemon.numpokemon}}.png"></ion-img>
+            <ion-img *ngIf="+[(pokemon.numpokemon)] > 809" src="assets/images/Missigno.png"></ion-img>
+          </ion-item>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="poke-types">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-img src="assets/images/{{pokemon.type1}}.png"></ion-img>
+                </ion-col>
+                <ion-col *ngIf="pokemon.type2 !== null && pokemon.type2 !== 'null'">
+                  <ion-img src="assets/images/{{pokemon.type2}}.png"></ion-img>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+          <div class="stats-container">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="stacked">HP:</ion-label>
+                    <ion-input id="hp" class="dataBox" type="number" name="hp" [(ngModel)]="pokemon.hp" required="true"
+                      readonly="true"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="stacked">Attack:</ion-label>
+                    <ion-input id="attack" class="dataBox" type="number" name="attack" [(ngModel)]="pokemon.attack"
+                      required="true" readonly="true"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="stacked">Defense:</ion-label>
+                    <ion-input id="defense" class="dataBox" type="number" name="defense" [(ngModel)]="pokemon.defense"
+                      required="true" readonly="true"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="stacked">Sp. Attack:</ion-label>
+                    <ion-input id="sp_attack" class="dataBox" type="number" name="sp_attack"
+                      [(ngModel)]="pokemon.sp_attack" required="true" readonly="true"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="stacked">Sp. Defense:</ion-label>
+                    <ion-input id="sp_defense" class="dataBox" type="number" name="sp_defense"
+                      [(ngModel)]="pokemon.sp_defense" required="true" readonly="true"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="stacked">Speed:</ion-label>
+                    <ion-input id="speed" class="dataBox" type="number" name="speed" [(ngModel)]="pokemon.speed"
+                      required="true" readonly="true"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <ion-grid class="container-button">
+              <ion-row>
+                <ion-col class="ion-align-self-center">
+                  <ion-button color="primary" (click)="update()">
+                    Update
+                  </ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button color="danger" routerLink="/home" (click)="deletePokemon(this.pokemon.idpoke)">
+                    Delete
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </div>
+</ion-content>

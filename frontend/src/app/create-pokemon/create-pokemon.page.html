@@ -1,0 +1,145 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Pokemon creator</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container-card">
+    <ion-item class="item-card">
+      <ion-card class="poke-card">
+        <ion-card-header>
+          <ion-item>
+            <ion-label position="stacked">Nº : (> 809)</ion-label>
+            <ion-input id="numpokemon" class="dataBox" type="number" [(ngModel)]="numpokemon" required="true">
+            </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Name:</ion-label>
+            <ion-input id="name" class="dataBox" type="string" [(ngModel)]="name" required="true"></ion-input>
+          </ion-item>
+          <ion-item class="img-container">
+            <ion-img *ngIf="+[(numpokemon)] < 10"
+              src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/00{{numpokemon}}.png"></ion-img>
+            <ion-img *ngIf="9 < +[(numpokemon)] && +[(numpokemon)] < 100"
+              src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/0{{numpokemon}}.png"></ion-img>
+            <ion-img *ngIf="99 < +[(numpokemon)] && +[(numpokemon)] < 810"
+              src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{numpokemon}}.png"></ion-img>
+            <ion-img *ngIf="+[(numpokemon)] > 809" src="assets/images/Missigno.png"></ion-img>
+          </ion-item>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="poke-types">
+            <ion-item>
+              <ion-select placeholder="Select type 1: " [(ngModel)]="type1">
+                <ion-select-option value="Poison">Poison</ion-select-option>
+                <ion-select-option value="Bug">Bug</ion-select-option>
+                <ion-select-option value="Dark">Dark</ion-select-option>
+                <ion-select-option value="Dragon">Dragon</ion-select-option>
+                <ion-select-option value="Electric">Electric</ion-select-option>
+                <ion-select-option value="Fairy">Dark</ion-select-option>
+                <ion-select-option value="Fighting">Fighting</ion-select-option>
+                <ion-select-option value="Fire">Fire</ion-select-option>
+                <ion-select-option value="Flying">Flying</ion-select-option>
+                <ion-select-option value="Ghost">Ghost</ion-select-option>
+                <ion-select-option value="Grass">Grass</ion-select-option>
+                <ion-select-option value="Ground">Ground</ion-select-option>
+                <ion-select-option value="Ice">Ice</ion-select-option>
+                <ion-select-option value="Normal">Normal</ion-select-option>
+                <ion-select-option value="Psychic">Psychic</ion-select-option>
+                <ion-select-option value="Rock">Rock</ion-select-option>
+                <ion-select-option value="Steel">Steel</ion-select-option>
+                <ion-select-option value="Water">Water</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-img src="assets/images/{{type1}}.png"></ion-img>
+            <ion-item>
+              <ion-select placeholder="Select type 2: (not required)" [(ngModel)]="type2">
+                <ion-select-option value="null">No one</ion-select-option>
+                <ion-select-option value="Poison">Poison</ion-select-option>
+                <ion-select-option value="Bug">Bug</ion-select-option>
+                <ion-select-option value="Dark">Dark</ion-select-option>
+                <ion-select-option value="Dragon">Dragon</ion-select-option>
+                <ion-select-option value="Electric">Electric</ion-select-option>
+                <ion-select-option value="Fairy">Fairy</ion-select-option>
+                <ion-select-option value="Fighting">Fighting</ion-select-option>
+                <ion-select-option value="Fire">Fire</ion-select-option>
+                <ion-select-option value="Flying">Flying</ion-select-option>
+                <ion-select-option value="Ghost">Ghost</ion-select-option>
+                <ion-select-option value="Grass">Grass</ion-select-option>
+                <ion-select-option value="Ground">Ground</ion-select-option>
+                <ion-select-option value="Ice">Ice</ion-select-option>
+                <ion-select-option value="Normal">Normal</ion-select-option>
+                <ion-select-option value="Psychic">Psychic</ion-select-option>
+                <ion-select-option value="Rock">Rock</ion-select-option>
+                <ion-select-option value="Steel">Steel</ion-select-option>
+                <ion-select-option value="Water">Water</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-img *ngIf="type2 !== null && type2 !== 'null'" src="assets/images/{{type2}}.png"></ion-img>
+          </div>
+          <div class="stats-container">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="stacked">HP:</ion-label>
+                    <ion-input id="hp" class="dataBox" type="number" name="hp" [(ngModel)]="hp" required="true">
+                    </ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="stacked">Attack:</ion-label>
+                    <ion-input id="attack" class="dataBox" type="number" name="attack" [(ngModel)]="attack"
+                      required="true"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="stacked">Defense:</ion-label>
+                    <ion-input id="defense" class="dataBox" type="number" name="defense" [(ngModel)]="defense"
+                      required="true"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="stacked">Sp. Attack:</ion-label>
+                    <ion-input id="sp_attack" class="dataBox" type="number" name="sp_attack" [(ngModel)]="sp_attack"
+                      required="true"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="stacked">Sp. Defense:</ion-label>
+                    <ion-input id="sp_defense" class="dataBox" type="number" name="sp_defense" [(ngModel)]="sp_defense"
+                      required="true"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="stacked">Speed:</ion-label>
+                    <ion-input id="speed" class="dataBox" type="number" name="speed" [(ngModel)]="speed"
+                      required="true"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+          <ion-button color="medium" (click)="createPokemon()">
+            Create
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </div>
+</ion-content>

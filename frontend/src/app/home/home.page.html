@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Pocket-Pokedex
+    </ion-title>
+    <ion-button slot="end" color="medium" routerLink="/create-pokemon">
+      Create Pokemon
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar search-icon="search-circle" [(ngModel)]="searchPoke" showCancelButton="focus" animated
+    placeholder="Busca tu pokemon"></ion-searchbar>
+  <div id="container-card">
+    <ion-item class="item-card" *ngFor="let p of pokemon | filter:searchPoke">
+      <app-poke-cards [idpoke]="p.idpoke" [numpokemon]="p.numpokemon" [name]="p.name" [type1]="p.type1"
+        [type2]="p.type2"></app-poke-cards>
+    </ion-item>
+  </div>
+</ion-content>

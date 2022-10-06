@@ -1,0 +1,26 @@
+#container-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.poke-card {
+  height: 100%;
+  max-width: 20em;
+  font-family: 'Roboto Mono', monospace;
+  border-radius: 1em;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.container-button{
+  margin: 0
+}
+
+.poke-types ion-img{
+  width: 50%;
+  height: 50%;
+  margin: auto;
+}
