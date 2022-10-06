@@ -29,9 +29,14 @@ export class CreatePokemonPage implements OnInit {
   ngOnInit() {
   }
 
-  postPokemon(pokemon: IPokemon) {
+  async postPokemon(pokemon: IPokemon) {
     console.log(pokemon.hp + ' ' + pokemon.type1 + ' ' + pokemon.name);
-    this.pokemonService.postPokemon(pokemon);
+    let blob = null;
+    if (this.capturedPhoto != "") {
+      const response = await fetch(this.capturedPhoto);
+      blob = await response.blob();
+    }
+    this.pokemonService.postPokemon(pokemon, blob);
   }
 
   navigate() {
@@ -39,21 +44,18 @@ export class CreatePokemonPage implements OnInit {
   }
 
   takePhoto() {
-    // DECOMMENT:
     this.photoService.takePhoto().then(data => {
       this.capturedPhoto = data.webPath;
     });
   }
 
   pickImage() {
-    // DECOMMENT:
     this.photoService.pickImage().then(data => {
       this.capturedPhoto = data.webPath;
     });
   }
 
   discardImage() {
-    // DECOMMENT:
     this.capturedPhoto = null;
   }
 

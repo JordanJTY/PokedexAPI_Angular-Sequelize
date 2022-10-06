@@ -3,13 +3,7 @@
     <h1>Nº {{numpokemon}}</h1>
     <ion-title>{{name}}</ion-title>
     <ion-item class="img-container">
-      <ion-img *ngIf="+[(numpokemon)] < 10"
-        src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/00{{numpokemon}}.png"></ion-img>
-      <ion-img *ngIf="9 < +[(numpokemon)] && +[(numpokemon)] < 100"
-        src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/0{{numpokemon}}.png"></ion-img>
-      <ion-img *ngIf="99 < +[(numpokemon)] && +[(numpokemon)] < 810"
-        src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{numpokemon}}.png"></ion-img>
-      <ion-img *ngIf="+[(numpokemon)] > 809" src="assets/images/Missigno.png"></ion-img>
+      <ion-img src="http://localhost:8080/images/{{filename}}"></ion-img>
     </ion-item>
   </ion-card-header>
   <ion-card-content>

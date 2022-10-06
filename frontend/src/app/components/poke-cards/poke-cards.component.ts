@@ -1,8 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import { BehaviorSubject } from 'rxjs';
-import { ModalPage } from 'src/app/modal/modal.page';
-import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-poke-cards',
@@ -16,8 +12,9 @@ export class PokeCardsComponent implements OnInit {
   @Input() name: string;
   @Input() type1: string;
   @Input() type2: string;
+  @Input() filename: string;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {}
 

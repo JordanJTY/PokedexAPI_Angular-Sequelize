@@ -15,7 +15,7 @@ module.exports = app => {
   router.get("/:id", pokemons.findOne);
 
   // Update a Pokemon with id
-  router.put("/:id", pokemons.update);
+  router.put("/:id", upload.single('file'), pokemons.update);
 
   // Delete a Pokemon with id
   router.delete("/:id", pokemons.delete);

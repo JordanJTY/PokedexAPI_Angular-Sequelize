@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { IPokemon } from '../interfaces/ipokemon';
+import { PhotoService } from '../services/photo.service';
 import { PokemonService } from '../services/pokemon.service';
 
 @Component({
@@ -13,8 +14,9 @@ export class ModalPage implements OnInit {
   @Input() id: number;
   pokemon: IPokemon;
   editable: boolean;
+  capturedPhoto: string = "";
 
-  constructor(private modalCtrl: ModalController, private pokemonService: PokemonService, private activatedRoute: ActivatedRoute,  private router: Router) {
+  constructor(private modalCtrl: ModalController, private pokemonService: PokemonService, private activatedRoute: ActivatedRoute, private router: Router, private photoService: PhotoService) {
     this.editable = true;
   }
 
@@ -36,16 +38,27 @@ export class ModalPage implements OnInit {
     this.navigate();
   }
 
-  putPokemon(pokemon: IPokemon, id: number) {
-    console.log('id ' + id + ' - pokemon ' + pokemon.hp)
-    this.pokemonService.putPokemon(pokemon, id);
-  }
-
   navigate() {
     this.router.navigate(['/home'])
   }
 
-  update() {
+  takePhoto() {
+    this.photoService.takePhoto().then(data => {
+      this.capturedPhoto = data.webPath;
+    });
+  }
+
+  pickImage() {
+    this.photoService.pickImage().then(data => {
+      this.capturedPhoto = data.webPath;
+    });
+  }
+
+  discardImage() {
+    this.capturedPhoto = null;
+  }
+
+  async update() {
     const id = this.activatedRoute.snapshot.params.id;
     if (this.editable === true) {
       document.querySelectorAll('.dataBox').forEach(x => {
@@ -63,9 +76,14 @@ export class ModalPage implements OnInit {
           x.setAttribute("readonly", "false");
         });
       } else {
-        this.putPokemon(this.pokemon, id);
+        let blob = null;
+        if (this.capturedPhoto != "") {
+          const response = await fetch(this.capturedPhoto);
+          blob = await response.blob();
+        }
+        this.pokemonService.putPokemon(this.pokemon, id, blob);
         this.editable = true;
-        this.navigate(); 
+        this.navigate();
       }
     }
   }

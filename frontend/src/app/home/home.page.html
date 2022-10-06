@@ -15,7 +15,7 @@
   <div id="container-card">
     <ion-item class="item-card" *ngFor="let p of pokemon | filter:searchPoke">
       <app-poke-cards [idpoke]="p.id" [numpokemon]="p.numpokemon" [name]="p.name" [type1]="p.type1"
-        [type2]="p.type2"></app-poke-cards>
+        [type2]="p.type2" [filename]="p.filename"></app-poke-cards>
     </ion-item>
   </div>
 </ion-content>

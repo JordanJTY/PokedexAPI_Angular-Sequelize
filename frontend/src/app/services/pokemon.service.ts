@@ -27,7 +27,7 @@ export class PokemonService {
     this.http.delete(this.endpoint + "/" + id).subscribe(data => { });
   }
 
-  postPokemon(pokemon: IPokemon) {
+  postPokemon(pokemon: IPokemon, blob) {
     let data = new URLSearchParams();
     data.append("numpokemon", pokemon.numpokemon.toString());
     data.append("name", pokemon.name);
@@ -39,11 +39,11 @@ export class PokemonService {
     data.append("sp_attack", pokemon.sp_attack.toString());
     data.append("sp_defense", pokemon.sp_defense.toString());
     data.append("speed", pokemon.speed.toString());
-    data.append("filename", pokemon.filename);
+    data.append("file", blob);
     this.http.post<IPokemon>(this.endpoint, data).subscribe(response => { }, (error) => { console.log(error) });
   }
 
-  putPokemon(pokemon: IPokemon, id: number) {
+  putPokemon(pokemon: IPokemon, id: number, blob) {
     let data = new URLSearchParams();
     data.append("numpokemon", pokemon.numpokemon.toString());
     data.append("name", pokemon.name);
@@ -55,7 +55,7 @@ export class PokemonService {
     data.append("sp_attack", pokemon.sp_attack.toString());
     data.append("sp_defense", pokemon.sp_defense.toString());
     data.append("speed", pokemon.speed.toString());
-    data.append("filename", pokemon.filename);
+    data.append("file", blob);
     this.http.put(this.endpoint + "/" + id, data).subscribe(response => { }, (error) => { console.log(error) });
   }
 }
