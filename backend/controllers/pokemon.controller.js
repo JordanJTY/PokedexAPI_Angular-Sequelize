@@ -27,7 +27,7 @@ exports.create = (req, res) => {
   }
 
   // Save Pokemon in the database
-  Bicycle.create(pokemon).then(data => {
+  Pokemon.create(pokemon).then(data => {
     res.send(data);
   }).catch(err => {
     res.status(500).send({

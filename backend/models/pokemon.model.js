@@ -33,9 +33,6 @@ module.exports = (sequelize, Sequelize) => {
     filename: {
       type: Sequelize.STRING
     },
-    filename: {
-      type: Sequelize.STRING
-    }
   });
 
   return Pokemon;

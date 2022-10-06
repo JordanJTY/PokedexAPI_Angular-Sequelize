@@ -24,13 +24,30 @@
             <ion-input id="name" class="dataBox" type="string" [(ngModel)]="name" required="true"></ion-input>
           </ion-item>
           <ion-item class="img-container">
-            <ion-img *ngIf="+[(numpokemon)] < 10"
-              src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/00{{numpokemon}}.png"></ion-img>
-            <ion-img *ngIf="9 < +[(numpokemon)] && +[(numpokemon)] < 100"
-              src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/0{{numpokemon}}.png"></ion-img>
-            <ion-img *ngIf="99 < +[(numpokemon)] && +[(numpokemon)] < 810"
-              src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{numpokemon}}.png"></ion-img>
-            <ion-img *ngIf="+[(numpokemon)] > 809" src="assets/images/Missigno.png"></ion-img>
+            <ion-grid>
+              <ion-row class="ion-align-items-center">
+                <ion-col size="6">
+                  <ion-img class="photo-frame" *ngIf="capturedPhoto" [src]="capturedPhoto" (click)="takePhoto()">
+                  </ion-img>
+                  <ion-img class="photo-frame" *ngIf="!capturedPhoto" src="../../assets/No-Image-Placeholder.svg"
+                    (click)="takePhoto()"></ion-img>
+                </ion-col>
+                <ion-col size="6">
+                  <ion-button color="primary" fill="outline" (click)="takePhoto()">
+                    <ion-icon slot="start" name="camera-outline"></ion-icon>
+                    Take a photo
+                  </ion-button>
+                  <ion-button color="primary" fill="outline" (click)="pickImage()">
+                    <ion-icon slot="start" name="image-outline"></ion-icon>
+                    Pick an image
+                  </ion-button>
+                  <ion-button color="danger" fill="outline" (click)="discardImage()">
+                    <ion-icon slot="start" name="aperture"></ion-icon>
+                    Discard image
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
           </ion-item>
         </ion-card-header>
         <ion-card-content>

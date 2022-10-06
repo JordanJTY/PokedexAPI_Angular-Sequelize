@@ -1,5 +1,5 @@
 export interface IPokemon {
-    idpoke?: number;
+    id?: number;
     numpokemon: number;
     name: string;
     type1: string;
@@ -10,4 +10,5 @@ export interface IPokemon {
     sp_attack: number;
     sp_defense: number;
     speed: number;
+    filename: string;
 }

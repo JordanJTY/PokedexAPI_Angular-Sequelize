@@ -1,19 +1,17 @@
 import { ErrorHandler, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IPokemon } from '../interfaces/ipokemon';
-import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 
-const httpOptionsUsingUrlEncoded = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
-};
+// const httpOptionsUsingUrlEncoded = {
+//   headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
+// };
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonService {
 
-  endpoint: string = "http://localhost:8080/pokemon"
+  endpoint: string = "http://localhost:8080/api/pokemon"
 
   constructor(private http: HttpClient) { }
 
@@ -41,7 +39,8 @@ export class PokemonService {
     data.append("sp_attack", pokemon.sp_attack.toString());
     data.append("sp_defense", pokemon.sp_defense.toString());
     data.append("speed", pokemon.speed.toString());
-    this.http.post<IPokemon>(this.endpoint, data, httpOptionsUsingUrlEncoded).subscribe(response => { }, (error) => { console.log(error) });
+    data.append("filename", pokemon.filename);
+    this.http.post<IPokemon>(this.endpoint, data).subscribe(response => { }, (error) => { console.log(error) });
   }
 
   putPokemon(pokemon: IPokemon, id: number) {
@@ -56,6 +55,7 @@ export class PokemonService {
     data.append("sp_attack", pokemon.sp_attack.toString());
     data.append("sp_defense", pokemon.sp_defense.toString());
     data.append("speed", pokemon.speed.toString());
-    this.http.put(this.endpoint + "/" + id, data, httpOptionsUsingUrlEncoded).subscribe(response => { }, (error) => { console.log(error) });
+    data.append("filename", pokemon.filename);
+    this.http.put(this.endpoint + "/" + id, data).subscribe(response => { }, (error) => { console.log(error) });
   }
 }

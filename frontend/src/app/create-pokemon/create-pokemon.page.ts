@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IPokemon } from '../interfaces/ipokemon';
+import { PhotoService } from '../services/photo.service';
 import { PokemonService } from '../services/pokemon.service';
 
 @Component({
@@ -20,8 +21,10 @@ export class CreatePokemonPage implements OnInit {
   sp_attack: number = null;
   sp_defense: number = null;
   speed: number = null;
+  filename: string = null;
+  capturedPhoto: string = "";
 
-  constructor(private pokemonService: PokemonService, private router: Router) { }
+  constructor(private pokemonService: PokemonService, private router: Router, private photoService: PhotoService) { }
 
   ngOnInit() {
   }
@@ -33,6 +36,25 @@ export class CreatePokemonPage implements OnInit {
 
   navigate() {
     this.router.navigate(['/home'])
+  }
+
+  takePhoto() {
+    // DECOMMENT:
+    this.photoService.takePhoto().then(data => {
+      this.capturedPhoto = data.webPath;
+    });
+  }
+
+  pickImage() {
+    // DECOMMENT:
+    this.photoService.pickImage().then(data => {
+      this.capturedPhoto = data.webPath;
+    });
+  }
+
+  discardImage() {
+    // DECOMMENT:
+    this.capturedPhoto = null;
   }
 
   createPokemon() {
@@ -47,6 +69,7 @@ export class CreatePokemonPage implements OnInit {
       sp_attack: this.sp_attack,
       sp_defense: this.sp_defense,
       speed: this.speed,
+      filename: this.filename
     }
     if (pokemon.name == null || pokemon.numpokemon == null || pokemon.type1 == null || pokemon.hp == null || pokemon.attack == null || pokemon.defense == null
       || pokemon.sp_attack == null || pokemon.sp_defense == null || pokemon.speed == null) {
