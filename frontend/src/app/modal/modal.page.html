@@ -22,7 +22,8 @@
                 <ion-col size="10">
                   <ion-img class="photo-frame" *ngIf="capturedPhoto" [src]="capturedPhoto" (click)="takePhoto()">
                   </ion-img>
-                  <ion-img class="photo-frame" *ngIf="!capturedPhoto" src="http://localhost:8080/images/{{pokemon.filename}}"
+                  <ion-img id="noImage" *ngIf="!capturedPhoto && (pokemon.filename == '' || pokemon.filename == null)" src="assets/No-Image-Placeholder.svg"></ion-img>
+                  <ion-img class="photo-frame" *ngIf="!capturedPhoto && pokemon.filename != '' && pokemon.filename != null" src="http://localhost:8080/images/{{pokemon.filename}}"
                     (click)="takePhoto()"></ion-img>
                 </ion-col>
                 <ion-button color="primary" fill="outline" (click)="takePhoto()">

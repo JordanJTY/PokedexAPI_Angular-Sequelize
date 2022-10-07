@@ -37,8 +37,9 @@ export class ModalPage implements OnInit {
     if (window.confirm('¿Are you sure about to delete this pokemon?')) {
       this.pokemonService.deletePokemon(id);
       this.navigate();
+    } else {
+      this.router.navigate(['/pokemon-details/' + id])
     }
-    
   }
 
   navigate() {
