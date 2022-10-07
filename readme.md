@@ -34,7 +34,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <il><a href="#searchbar">SearchBar</a></li>
+    <li><a href="#searchbar">SearchBar</a></li>
     <li><a href="#components">Components</a></li>
     <li><a href="#api">API</a></li>
     <li><a href="#endpoints">Endpoints</a></li>
