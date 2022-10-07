@@ -34,9 +34,14 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#searchbar">SearchBar</a></li>
-    <li><a href="#components">Components</a></li>
-    <li><a href="#api">API</a></li>
+    <li>
+      <a href="#madebyme">Made By Me</a>
+      <ul>
+        <li><a href="#searchbar">SearchBar</a></li>
+        <li><a href="#components">Components</a></li>
+        <li><a href="#api">API</a></li>
+      </ul>
+    </li>
     <li><a href="#endpoints">Endpoints</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -128,8 +133,12 @@ Below you have commands to install all setup in Visual Studio Code.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+<!-- MadeByMe -->
+## MadeByMe
+
+
 <!-- SearchBar -->
-## SearchBar
+### SearchBar
 
 In this proyect, I used a search bar called ng2-search-filter. This search bar filter from some properties of objects Pokemon. That means it use number attack, defense, hp... In addition of number of pokemon to seach them. I used this, because I thought it interesant to search from some options.
 
@@ -138,7 +147,7 @@ In this proyect, I used a search bar called ng2-search-filter. This search bar f
 
 
 <!-- COMPONENTS -->
-## Components
+### Components
 
 In this proyect, I used components with ionic. There could be like a mold to input data via variables or there could be pre-fabs like headers or footers using frecuently in website. In my case, I use it to insert data in that and show pokemon cards (Pokemon cards are visible in Main menú).
 
@@ -147,7 +156,7 @@ In this proyect, I used components with ionic. There could be like a mold to inp
 
 
 <!-- external API -->
-## API
+### API
 
 Our proyect was created to a API made by Github user (you have his profile below). To extract data from that API, I had to make a application where convert the JSON information in Java Objects. Then, I browse a array of Java Object called Pokemon to get data and insert in my database.
 
