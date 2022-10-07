@@ -123,7 +123,6 @@ exports.delete = (req, res) => {
   })
     .then(num => {
       if (num == 1) {
-        
         res.send({
           message: "Pokemon was deleted successfully!"
         });
