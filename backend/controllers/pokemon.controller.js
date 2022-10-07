@@ -90,7 +90,7 @@ exports.update = (req, res) => {
     sp_attack: req.body.sp_attack,
     sp_defense: req.body.sp_defense,
     speed: req.body.speed,
-    filename: req.file ? req.file.filename : ""
+    filename: req.file
   }
   const id = req.params.id;
   Pokemon.update(pokemon, {
