@@ -127,6 +127,15 @@ Below you have commands to install all setup in Visual Studio Code.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+<!-- SearchBar -->
+## SearchBar
+
+In this proyect, I used a search bar called ng2-search-filter. This search bar filter from some properties of objects Pokemon. That means it use number attack, defense, hp... In addition of number of pokemon to seach them. I used this, because I thought it interesant to search from some options.
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 <!-- COMPONENTS -->
 ## Components
 
