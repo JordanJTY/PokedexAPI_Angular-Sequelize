@@ -182,7 +182,7 @@ You can check my endpoint in this link: (https://documenter.getpostman.com/view/
 [delete-pokemon-request]: https://github.com/JordanJTY/PokedexAPI_Angular-Spring/blob/master/frontend/src/assets/images/deletePokemonRequest.png
 [delete-pokemon-deleted]: https://github.com/JordanJTY/PokedexAPI_Angular-Spring/blob/master/frontend/src/assets/images/deletePokemonDeleted.png
 [main-menu]: https://github.com/JordanJTY/PokedexAPI_Angular-Spring/blob/master/frontend/src/assets/images/mainMenu.png
-[create-pokemon]: https://github.com/JordanJTY/PokedexAPI_Angular-Spring/blob/master/frontend/src/assets/images/createPokemon.png
+[create-pokemon]: https://github.com/JordanJTY/PokedexAPI_Angular-Sequelize/blob/53a5199afe6f3557d028eb0dcd4968618a53ded1/frontend/src/assets/images/createPokemon.png
 [pokemon-details]: https://github.com/JordanJTY/PokedexAPI_Angular-Spring/blob/master/frontend/src/assets/images/pokemonDetails.png
 [search-pokemon]: https://github.com/JordanJTY/PokedexAPI_Angular-Spring/blob/master/frontend/src/assets/images/searchPokemon.png
 [Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
