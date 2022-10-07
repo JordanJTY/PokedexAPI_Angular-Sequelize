@@ -29,16 +29,6 @@ export class CreatePokemonPage implements OnInit {
   ngOnInit() {
   }
 
-  async postPokemon(pokemon: IPokemon) {
-    console.log(pokemon.hp + ' ' + pokemon.type1 + ' ' + pokemon.name);
-    let blob = null;
-    if (this.capturedPhoto != "") {
-      const response = await fetch(this.capturedPhoto);
-      blob = await response.blob();
-    }
-    this.pokemonService.postPokemon(pokemon, blob);
-  }
-
   navigate() {
     this.router.navigate(['/home'])
   }
@@ -59,7 +49,7 @@ export class CreatePokemonPage implements OnInit {
     this.capturedPhoto = null;
   }
 
-  createPokemon() {
+  async createPokemon() {
     let pokemon: IPokemon = {
       numpokemon: this.numpokemon,
       name: this.name,
@@ -77,7 +67,12 @@ export class CreatePokemonPage implements OnInit {
       || pokemon.sp_attack == null || pokemon.sp_defense == null || pokemon.speed == null) {
       alert('You must fill all fields');
     } else {
-      this.postPokemon(pokemon);
+      let blob = null;
+      if (this.capturedPhoto != "") {
+        const response = await fetch(this.capturedPhoto);
+        blob = await response.blob();
+      }
+      this.pokemonService.postPokemon(pokemon, blob);
       this.navigate();
     }
 

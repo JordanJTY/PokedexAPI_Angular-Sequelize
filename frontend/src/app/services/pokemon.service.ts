@@ -28,7 +28,7 @@ export class PokemonService {
   }
 
   postPokemon(pokemon: IPokemon, blob) {
-    let data = new URLSearchParams();
+    let data = new FormData();
     data.append("numpokemon", pokemon.numpokemon.toString());
     data.append("name", pokemon.name);
     data.append("type1", pokemon.type1);
@@ -44,7 +44,7 @@ export class PokemonService {
   }
 
   putPokemon(pokemon: IPokemon, id: number, blob) {
-    let data = new URLSearchParams();
+    let data = new FormData();
     data.append("numpokemon", pokemon.numpokemon.toString());
     data.append("name", pokemon.name);
     data.append("type1", pokemon.type1);
