@@ -34,8 +34,11 @@ export class ModalPage implements OnInit {
 
   deletePokemon(id: number) {
     console.log('Id return: ' + id);
-    this.pokemonService.deletePokemon(id);
-    this.navigate();
+    if (window.confirm('¿Are you sure about to delete this pokemon?')) {
+      this.pokemonService.deletePokemon(id);
+      this.navigate();
+    }
+    
   }
 
   navigate() {

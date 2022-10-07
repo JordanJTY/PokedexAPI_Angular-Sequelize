@@ -3,7 +3,8 @@
     <h1>Nº {{numpokemon}}</h1>
     <ion-title>{{name}}</ion-title>
     <ion-item class="img-container">
-      <ion-img src="http://localhost:8080/images/{{filename}}"></ion-img>
+      <ion-img *ngIf="filename == '' || filename == null" src="assets/No-Image-Placeholder.svg"></ion-img>
+      <ion-img *ngIf="filename != '' && filename != null" src="http://localhost:8080/images/{{filename}}"></ion-img>
     </ion-item>
   </ion-card-header>
   <ion-card-content>
